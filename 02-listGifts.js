@@ -22,7 +22,7 @@ console.log(regalos)
   peluche: 1
 }
 */
-
+/*
 Ten en cuenta que los tests pueden ser más exhaustivos... 😝 ¡Cuidado con contar espacios vacíos!
 */
 
