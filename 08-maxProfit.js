@@ -33,7 +33,7 @@ function maxProfit(prices) {
     }
   }
   let result =Math.max(...profits);
-	return result>0?result:-1
+  return result>0?result:-1
 }
 
 //SOLUCIÓN usando map
@@ -46,5 +46,5 @@ export default function maxProfit(prices) {
   })
   
   let result =Math.max(...profits.flat());
-	return result>0?result:-1
+  return result>0?result:-1
 }
