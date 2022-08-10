@@ -3,7 +3,8 @@ En el taller de Santa 🎅 se están preparando los trineos de motor eléctrico 
 
 La ruta empieza en el punto 0 y de ahí va hacia la derecha en línea recta.
 
-El Keanu Relfes 🧝 nos ha preparado una lista de obstáculos a evitar. El problema es que nos ha dado la lista de posiciones de los obstáculos desordenada... 😅 aunque al menos nunca la posición 0 puede tener un obstáculo.
+El Keanu Relfes 🧝 nos ha preparado una lista de obstáculos a evitar. El problema es que nos ha dado la lista de posiciones de los obstáculos desordenada...
+😅 aunque al menos nunca la posición 0 puede tener un obstáculo.
 
 Encima, el trineo sólo se puede configurar para saltar un número fijo de posiciones... 😱
 
@@ -13,16 +14,15 @@ const obstacles = [5, 3, 6, 7, 9]
 getMinJump(obstacles) // -> 4
 
 // S es salto, X es obstáculo
-/* Así quedaría la representación:
+ Así quedaría la representación:
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 .  .  .  X  .  X  X  X  .  X  . 
 S-----------S-----------S-------
-*/
 
 const obstacles = [2, 4, 6, 8, 10]
 getMinJump(obstacles) // -> 7
 
-/* Así quedaría la representación:
+ Así quedaría la representación:
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 .  .  X  .  X  .  X  .  X  .  X 
 S--------------------S---------
@@ -39,14 +39,15 @@ S--------------------S---------
 getMinJump([1, 2, 3, 5]) // -> 4
 getMinJump([3, 7, 5]) // -> 2
 getMinJump([9, 5, 1]) // -> 2
-*/
 
-La dificultad del reto está en pensar que sólo podemos configurar el salto del trineo una vez y que buscamos el salto mínimo que nos serviría para sortear todos los obstaculos.
+
+La dificultad del reto está en pensar que sólo podemos configurar el salto del trineo una vez y que buscamos el salto mínimo que nos
+serviría para sortear todos los obstaculos.
 */
 
 //SOLUCIÓN
 function getMinJump(obstacles) {
-	//Ordenamos el array de obstáculos
+  //Ordenamos el array de obstáculos
   const sortedObstacles = obstacles.sort((a,b)=>a-b);
   
   //Obtenemos la última posición
@@ -56,23 +57,23 @@ function getMinJump(obstacles) {
   //let positions = [...Array(lastPosition).keys()];
   
   //Devuelve un array con las posiciones del salto
-	const getPositions=(step)=>{
-  	let arr=[]
-  	for(let i = 0; i<=lastPosition;i+=step){
-    	arr.push(i);
+  const getPositions=(step)=>{
+    let arr=[]
+    for(let i = 0; i<=lastPosition;i+=step){
+  	arr.push(i);
     }
-  	return arr;
+    return arr;
   }
   
-	while(jumpLength<=lastPosition){
-  	//Si alguna de las posiciones se encuentra en el array de obstáculos
+  while(jumpLength<=lastPosition){
+    //Si alguna de las posiciones se encuentra en el array de obstáculos
     //incrementamos el salto en uno
-  	if(getPositions(jumpLength).some(pos=>obstacles.includes(pos))){
+    if(getPositions(jumpLength).some(pos=>obstacles.includes(pos))){
     	jumpLength++;
     }else{
-    	//Si las posiciones del salto no están en el array de obstáculos
-      //finalizamos el bucle
-    	break;
+     //Si las posiciones del salto no están en el array de obstáculos
+     //finalizamos el bucle
+   	break;
     }
    }
   return jumpLength;
