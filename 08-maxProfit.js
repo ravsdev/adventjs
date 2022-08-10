@@ -35,3 +35,16 @@ function maxProfit(prices) {
   let result =Math.max(...profits);
 	return result>0?result:-1
 }
+
+//SOLUCIÓN usando map
+export default function maxProfit(prices) {
+  let profits=[];
+
+  profits = prices.map((price,idx,arr)=>{
+  	let nextPrices = arr.slice(idx);
+  	return nextPrices.map(nextPrice=>nextPrice-price)
+  })
+  
+  let result =Math.max(...profits.flat());
+	return result>0?result:-1
+}
