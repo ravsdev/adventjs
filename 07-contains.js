@@ -42,7 +42,7 @@ Ten en cuenta que la tienda es enorme. Tiene diferentes almacenes y, como has vi
 //SOLUCIÓN
 function contains(store, product) {
   //Función recursiva
-	function getProducts(store,product){
+  function getProducts(store,product){
     let resultado=Object.values(store).map(value=>{
       if(typeof value === 'object'){
         return getProducts(value,product)
