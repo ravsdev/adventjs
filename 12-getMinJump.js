@@ -78,3 +78,24 @@ function getMinJump(obstacles) {
    }
   return jumpLength;
 }
+
+
+//SOLUCIÓN usando filter
+function getMinJump(obstacles) {
+  let jumpLength = 1;
+  //Obtenemos la última posición
+  const lastPosition = obstacles.sort((a, b) => a - b).slice(-1)[0];
+
+  let positions = [...Array(lastPosition + 1).keys()];
+  positions.shift(); //Removes 0 from array
+
+  //Devuelve un array con las posiciones del salto
+  const getPositions = (step) => {
+    let arr = []
+    for (let i = 0; i <= lastPosition; i += step) {
+      arr.push(i);
+    }
+    return arr;
+  }
+  return positions.filter(el => !getPositions(el).some(pos => obstacles.includes(pos)))[0];
+}
