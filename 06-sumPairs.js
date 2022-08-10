@@ -36,3 +36,24 @@ function sumPairs(numbers, result) {
   }
   return numPair;
 }
+
+//SOLUCIÓN usando un Map Object
+function sumPairs(numbers, result) {
+  let hashMap = new Map(),
+    pairs = [];
+
+  numbers.forEach(num => {
+    if (hashMap.has(num)) {
+      //Si no hemos encontrado otro par que sume
+      //o
+      //El índice del que vamos a añadir es menor que el existente lo añadimos
+      if (pairs.length === 0 || numbers.indexOf(hashMap.get(num)) < numbers.indexOf(pairs[0]))
+        pairs = [hashMap.get(num), num];
+    } else {
+      //Si no hay un número en el Map añadimos el resultado menos el número
+      hashMap.set(result - num, num);
+    }
+  })
+
+  return pairs.length > 0 ? pairs : null;
+}
