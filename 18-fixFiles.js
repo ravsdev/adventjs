@@ -26,14 +26,16 @@ cuándo van a poder usarlo. Que hay prisa. 😝 Así que entra a Discord y cuén
 
 //SOLUCIÓN
 export default function fixFiles(files) {
- let fileMap = new Map();
- 
-  return files.map((file)=>{
-  	if(fileMap.has(file)){
-    	fileMap.set(file,fileMap.get(file)+1)
+  let fileMap = new Map();
+
+  return files.map((file) => {
+   //Si ya hay un fichero con el mismo nombre, sumamos uno al valor de ese archivo
+    if (fileMap.has(file)) {
+      fileMap.set(file, fileMap.get(file) + 1)
       return `${file}(${fileMap.get(file)})`
-    }else {
-    	fileMap.set(file,0);
+    } else {
+     //Si no hay ningún fichero con ese nombre lo añadimos a la lista de archivos
+      fileMap.set(file, 0);
       return file;
     }
   })
