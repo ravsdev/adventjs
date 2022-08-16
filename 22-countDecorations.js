@@ -79,9 +79,9 @@ Por cierto, Bellf Gates me ha contado que este tipo de ejercicio es muy típico 
 
 //SOLUCIÓN función recursiva
 function countDecorations(bigTree) {
-	let treeValues = [];
+    let treeValues = [];
   
- 	for (const key in bigTree){
+    for (const key in bigTree){
   	if(typeof bigTree[key]==="object"){
     	treeValues.push(countDecorations(bigTree[key]))
     }else{
@@ -94,7 +94,7 @@ function countDecorations(bigTree) {
 
 //Solución convirtiendo el objecto a texto y buscando números
 function countDecorations(bigTree) {
-	const treeTxt=JSON.stringify(bigTree);
+  const treeTxt=JSON.stringify(bigTree);
   const nodes=treeTxt.match(/\d/g).map(node=>Number.parseInt(node))
   
   return nodes.reduce((sum,num)=>sum+num,0)
