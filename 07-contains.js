@@ -55,3 +55,17 @@ function contains(store, product) {
   
   return getProducts(store,product).includes(product);
 }
+
+//SOLUCIÓN 2
+export default function contains(store, product) {
+  let resultado = false;
+  for (const thing in store) {
+    if (typeof store[thing] === "object") {
+      resultado = contains(store[thing], product)
+    } else if (store[thing] === product) {
+      resultado = true
+    }
+  }
+
+  return resultado
+}
