@@ -1,4 +1,4 @@
-# adventjs
-25 días de retos con JavaScript
+# adventJS
+25 días de retos con JavaScript 📜
 
-[Retos](https://adventjs.dev)
+[Retos](https://adventjs.dev)🌐
