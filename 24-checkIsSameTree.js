@@ -32,7 +32,10 @@ function checkIsSameTree(treeA, treeB) {
   for (const value in treeA) {
     const valueA = treeA[value];
     const valueB = treeB[value];
+    //Comprobamos si son objetos
     const areObjects = valueA !== null && typeof valueA === "object" && valueB !== null && typeof valueB === "object";
+    //Si no son objetos y los valores son diferentes devolvemos FALSE
+    //Si son objetos ejecutamos recursivamente la función y comprobamos que no retorne FALSE
     if (areObjects && !checkIsSameTree(valueA, valueB) || !areObjects && valueA !== valueB) return false
   }
   return true
